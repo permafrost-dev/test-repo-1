@@ -5,7 +5,7 @@ trusted:
 events:
   issue.opened:
     - action: CreateIssueComment
-      params: [$(issue.number), '@$(sender.login), you are not a trusted issue author.  Closing issue.']
+      params: [$(issue.number), '@$(sender.login) is not a trusted issue author! Issue automatically closed.']
     - action: CloseIssue
       params: [$(issue.number)]
 
