@@ -1,0 +1,18 @@
+trusted:
+  - freekmurze
+  - '@spatie'
+
+events:
+  issue.opened:
+    - action: CreateIssueComment
+      params: [$(issue.number), '@$(sender.login), you are not a trusted issue author.  Closing issue.']
+    - action: CloseIssue
+      params: [$(issue.number)]
+
+  issue.reopened:
+    - action: CloseIssue
+      params: [$(issue.number)]
+
+  issue_comment.created:
+#    - action: DeleteIssueComment
+#      params: [$(comment.id)]
