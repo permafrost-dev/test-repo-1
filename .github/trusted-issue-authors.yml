@@ -13,6 +13,10 @@ events:
     - action: AddIssueLabel
       condition: untrusted
       params: [$(issue.number), 'untrusted']
+      
+    - action: AddIssueLabel
+      condition: trusted
+      params: [$(issue.number), 'trusted']
 
     - action: CloseIssue
       params: [$(issue.number)]
