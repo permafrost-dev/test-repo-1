@@ -4,6 +4,9 @@ trusted:
 
 events:
   issue.opened:
+    - action: ModifyIssueContent
+      params: [$(issue.number), '{{original_text}}<br><br>_issue created by an untrusted author. closing issue._']
+      
     - action: CreateIssueComment
       params: [$(issue.number), '@$(sender.login), you are not a trusted issue author.  Closing issue.']
 
