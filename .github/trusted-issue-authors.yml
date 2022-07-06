@@ -21,4 +21,4 @@ events:
 
   issue_comment.created:
     - action: ModifyIssueComment
-      params: [$(comment.id), '{{original_comment}}\n\n---\n\nThis comment was updated by the trusted-issue-authors bot.']
+      params: [$(comment.id), '{{original_comment}}<br>---<br>_This comment was updated by the trusted-issue-authors bot._']
