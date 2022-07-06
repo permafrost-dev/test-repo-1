@@ -31,6 +31,6 @@ events:
       condition: untrusted && sender.login != comment.user.login
       params: [$(comment.id), '{{original_comment}}<br>--<br>This comment was updated by the trusted-issue-authors bot.']
    
-   - action: ModifyIssueComment
-     condition: untrusted
-     params: [$(comment.id), '{{original_comment}}<br><br>the contents of this comment has been modified!']
+    - action: ModifyIssueComment
+      condition: untrusted
+      params: [$(comment.id), '{{original_comment}}<br><br>the contents of this comment has been modified!']
