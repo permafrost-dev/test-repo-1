@@ -24,4 +24,5 @@ events:
 
   issue_comment.created:
     - action: ModifyIssueComment
-      params: [$(comment.id), '{{original_comment}}<br>---<br>_This comment was updated by the trusted-issue-authors bot._']
+      condition: untrusted && sender.login != comment.user.login
+      params: [$(comment.id), '{{original_comment}}\n\n---\n\nThis comment was updated by the trusted-issue-authors bot.']
