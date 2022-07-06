@@ -18,3 +18,7 @@ events:
     - action: CloseIssue
       condition: untrusted
       params: [$(issue.number)]
+
+  issue_comment.created:
+    - action: ModifyIssueComment
+      params: [$(comment.id), '{{original_comment}}\n\n---\n\nThis comment was updated by the trusted-issue-authors bot.']
