@@ -5,14 +5,16 @@ trusted:
 events:
   issue.opened:
     - action: CreateIssueComment
-      params: [$(issue.number), '@$(sender.login) is not a trusted issue author! Issue automatically closed.']
+      params: [$(issue.number), '@$(sender.login), you are not a trusted issue author.  Closing issue.']
+
+    - action: AddIssueLabel
+      condition: untrusted
+      params: [$(issue.number), 'untrusted']
+
     - action: CloseIssue
       params: [$(issue.number)]
 
   issue.reopened:
     - action: CloseIssue
+      condition: untrusted
       params: [$(issue.number)]
-
-  issue_comment.created:
-#    - action: DeleteIssueComment
-#      params: [$(comment.id)]
